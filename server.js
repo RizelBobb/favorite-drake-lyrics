@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 })
 //handles when someone posts a message
 app.post('/quotes', (req, res) => {
-  db.collection('quotes').save({quote: "''"+req.body.quote+"''", char:"-"+ req.body.char, thumbUp: 0, thumbDown:0}, (err, result) => {
+  db.collection('quotes').save({quote: "''"+req.body.quote+"''", char:"-"+ req.body.char, thumbUp: 0}, (err, result) => {
     if (err) return console.log(err)
     console.log('saved to database')
     res.redirect('/')
@@ -51,7 +51,7 @@ app.put('/quotesto', (req, res) => {
   db.collection('quotes')
   .findOneAndUpdate({quote: req.body.quote, char: req.body.char}, {
     $set: {
-      thumbDown:req.body.thumbDown + 1
+      thumbUp:req.body.thumbUp - 1
     }
   }, {
     sort: {_id: -1},

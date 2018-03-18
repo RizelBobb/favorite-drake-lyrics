@@ -15,7 +15,7 @@ Array.from(thumbUp).forEach(function(element) {
           body: JSON.stringify({
             'quote': quote,
             'char': char,
-            'thumbUp':thumbUp,
+            'thumbUp':thumbUp
 
           })
         })
@@ -35,16 +35,15 @@ Array.from(thumbDown).forEach(function(element) {
         //how to bind an event listener to an element
         const quote = this.parentNode.parentNode.childNodes[1].innerText
         const char = this.parentNode.parentNode.childNodes[3].innerText
-        const thumbDown = parseFloat(this.parentNode.parentNode.childNodes[7].innerText)
-
+        const thumbUp = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
         fetch('quotesto', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             'quote': quote,
             'char': char,
+            'thumbUp':thumbUp
 
-            'thumbDown':thumbDown
           })
         })
         .then(response => {
