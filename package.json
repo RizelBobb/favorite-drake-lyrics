@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "panther": "nodemon server.js"
+    "drake": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
